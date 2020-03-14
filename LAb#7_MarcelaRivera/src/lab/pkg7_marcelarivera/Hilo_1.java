@@ -14,12 +14,22 @@ import javax.swing.JProgressBar;
 public class Hilo_1 extends Thread{
     private JProgressBar barra;
     private boolean avanzar,vive;
+    private int h;
     
      public Hilo_1(JProgressBar barra) {
         this.barra = barra;
         avanzar = true;
         vive = true;
     }
+
+    public int getH() {
+        return h;
+    }
+
+    public void setH(int h) {
+        this.h = h;
+    }
+     
 
     public boolean isAvanzar() {
         return avanzar;
@@ -49,7 +59,7 @@ public class Hilo_1 extends Thread{
         while(vive){
             if(avanzar){
                 barra.setValue(barra.getValue()+1);
-                if(barra.getValue()==5){
+                if(barra.getValue()==h){
                     vive=false;
                 }
                 try{
